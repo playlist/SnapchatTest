@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCSDKLoginKit
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func buttonTapped(_ sender: Any) {
+        SCSDKLoginClient.login(from: self) { (success : Bool, error : Error?) in
+            NSLog("login success: \(success), Error: \(error)")
+        }
+    }
 }
 

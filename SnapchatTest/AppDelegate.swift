@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,5 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let result = SCSDKLoginClient.application(app, open: url, options: options)
+        NSLog("Login result: \(result)")
+        return result
+    }
 }
 
